@@ -11,6 +11,24 @@ const db = SQLite.openDatabase({name:'mydata'});
 
 const InicioScreen = function({ navigation }) {
 
+    const notaItems = function({item}){
+        return(
+            <TouchableOpacity onPress={onPress} style={style.itemContacto}>
+                <Text style={style.itemContactoTitle}>{item.title}</Text>
+                <Text style={style.itemContactoDetails}>{item.desc}</Text>
+            </TouchableOpacity>
+        );
+    }
+
+    const [host,setHost] = useState('http://localhost:3000');
+    const [notas,setNotas] = useState([]);
+
+    useEffect(function(){
+        fetch(`${host}/posts`)
+        .then(resp => console.log({resp}))
+        .then(json => setNotas(json));
+    },[]);
+
     const [contactos, setContactos] = useState([]);
 
     useEffect(function() {
@@ -63,9 +81,9 @@ const InicioScreen = function({ navigation }) {
         <SafeAreaView>
             <View>
                 <FlatList
-                    data={contactos}
-                    renderItem={contactoItem}
-                    keyExtractor={i=>i.id_contacto}
+                    data={notas}
+                    renderItem={notaItems}
+                    keyExtractor={i=>i.id}
                 />
             </View>
             <Button color="green" title="Agregar Nota" onPress={()=>navigation.navigate('agregarScreen')} />
