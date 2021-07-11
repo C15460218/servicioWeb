@@ -1,26 +1,31 @@
 {
   "notas": [
     {
+      "id_nota": 1,
       "title": "Prueba1",
       "desc": "Base",
       "color": "7C83FD"
     },
     {
+      "id_nota": 2,
       "title": "Prueba2",
       "desc": "Base1",
       "color": "FFFFFF"
     },
     {
+      "id_nota": 3,
       "title": "Prueba3",
       "desc": "Base2",
       "color": "7DEDFF"
     },
     {
+      "id_nota": 4,
       "title": "Prueba4",
       "desc": "Bas3",
       "color": "88FFF7"
     },
     {
+      "id_nota": 5,
       "title": "Prueba5",
       "desc": "Base4",
       "color": "7DEDFF"
